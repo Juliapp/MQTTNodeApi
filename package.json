@@ -2,6 +2,9 @@
   "name": "mqttnodeapi",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "main": "index.js",
   "repository": "https://github.com/Juliapp/MQTTNodeApi.git",
   "author": "Juliana <aragaopintojuli@gmail.com>",
