@@ -3,9 +3,15 @@
   "builds": [
     {
       "src": "./index.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["./**"] }
     }
   ],
 
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "index.js"
+    }
+  ]
 }
