@@ -3,6 +3,10 @@ import { states, alarm_logs } from './database/index.js';
 
 const routes = Router();
 
+routes.get('/', (req, res) => {
+  return res.send('Application is running');
+})
+
 routes.get('/api/states', async (req, res) => {
   const currentStates = await states();
   res.setHeader('Content-Type', 'text/html');
