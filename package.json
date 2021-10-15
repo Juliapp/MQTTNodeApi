@@ -15,7 +15,8 @@
     "mongoose": "^6.0.10"
   },
   "scripts": {
-    "start": "nodemon ./app.js"
+    "start": "node ./app.js",
+    "start-watch": "nodemon ./app.js --ignore-watch node_modules/"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
