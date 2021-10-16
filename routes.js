@@ -1,23 +1,23 @@
 import { Router } from 'express';
-import { states, alarm_logs } from './database/index.js';
-
+// import { states, alarm_logs } from './database/index.js';
+import {initDB, states, alarm_logs} from './database/mongo.js'
 const routes = Router();
+
+initDB()
+  .then(console.log)
+  .catch(console.error)
 
 routes.get('/', (req, res) => {
   return res.send('Application is running');
 })
 
-routes.get('/api/states', async (req, res) => {
+routes.get('/states', async (req, res) => {
   const currentStates = await states();
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   return res.json(currentStates);
 });
 
-routes.get('/api/alarmlogs', async (req, res) => {
+routes.get('/alarmlogs', async (req, res) => {
   const alarmLogs = await alarm_logs();
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   return res.json(alarmLogs);
 });
 
