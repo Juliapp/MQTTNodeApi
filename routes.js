@@ -19,9 +19,4 @@ routes.get('/alarmlogs', async (req, res) => {
   return res.json(alarmLogs);
 });
 
-routes.post('/comandovoz/arcondicionado', (req, res) => {
-  console.log('O comando foi: ', req.body);
-  res.sendStatus(200);
-});
-
 export default routes;
